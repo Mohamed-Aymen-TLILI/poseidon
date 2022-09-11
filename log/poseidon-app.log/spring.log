@@ -1,0 +1,30 @@
+2022-09-11 20:16:53.350  INFO 45223 --- [restartedMain] com.nnk.springboot.Application           : Starting Application using Java 11.0.9 on MacBook-Pro-de-TLILI.local with PID 45223 (/Users/tlili/Desktop/Poseidon/Poseiden-skeleton/target/classes started by tlili in /Users/tlili/Desktop/Poseidon)
+2022-09-11 20:16:53.352 DEBUG 45223 --- [restartedMain] com.nnk.springboot.Application           : Running with Spring Boot v2.5.6, Spring v5.3.12
+2022-09-11 20:16:53.352  INFO 45223 --- [restartedMain] com.nnk.springboot.Application           : No active profile set, falling back to default profiles: default
+2022-09-11 20:16:53.411  INFO 45223 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-11 20:16:54.238  INFO 45223 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-11 20:16:54.316  INFO 45223 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 6 JPA repository interfaces.
+2022-09-11 20:16:54.994  INFO 45223 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-11 20:16:55.006  INFO 45223 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-11 20:16:55.006  INFO 45223 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-09-11 20:16:55.089  INFO 45223 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-11 20:16:55.089  INFO 45223 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1677 ms
+2022-09-11 20:16:55.109 DEBUG 45223 --- [restartedMain] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: springSecurityFilterChain urls=[/*] order=-100, characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105
+2022-09-11 20:16:55.109 DEBUG 45223 --- [restartedMain] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: dispatcherServlet urls=[/]
+2022-09-11 20:16:55.660  INFO 45223 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-11 20:16:55.666  WARN 45223 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-09-11 20:16:56.007  INFO 45223 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-11 20:16:57.073  INFO 45223 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-11 20:16:57.510  WARN 45223 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-11 20:16:57.646 DEBUG 45223 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-09-11 20:16:57.731 DEBUG 45223 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 43 mappings in 'requestMappingHandlerMapping'
+2022-09-11 20:16:57.772 DEBUG 45223 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-09-11 20:16:57.784 DEBUG 45223 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-09-11 20:16:57.987  INFO 45223 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 3df283ec-63d5-4d64-a8cb-e7490c3765d8
+
+2022-09-11 20:16:58.146  INFO 45223 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@326242c, org.springframework.security.web.context.SecurityContextPersistenceFilter@75d9ea81, org.springframework.security.web.header.HeaderWriterFilter@11eb36b, org.springframework.security.web.csrf.CsrfFilter@3ea374fe, org.springframework.security.web.authentication.logout.LogoutFilter@74462206, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4e18106e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5f94b011, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5499b76a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2b1a1540, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c255618, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fc14b7f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f5218ac, org.springframework.security.web.session.SessionManagementFilter@507b9de3, org.springframework.security.web.access.ExceptionTranslationFilter@266210d3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@53e2d18]
+2022-09-11 20:16:58.197  INFO 45223 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-11 20:16:58.248  INFO 45223 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-11 20:16:58.263  INFO 45223 --- [restartedMain] com.nnk.springboot.Application           : Started Application in 5.509 seconds (JVM running for 6.492)
