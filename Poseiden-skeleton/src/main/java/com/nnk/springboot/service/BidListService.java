@@ -64,4 +64,9 @@ public class BidListService {
             LOGGER.error("Failed to delete BidList with id " + id);
         }
     }
+
+    public void insertBidList(BidList bidList) {
+        bidListRepository.save(bidList);
+        LOGGER.info("New BidList " + bidList + " is created!");
+    }
 }

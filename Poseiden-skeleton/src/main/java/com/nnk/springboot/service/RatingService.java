@@ -60,4 +60,9 @@ public class RatingService {
             logger.error("Failed to delete Rating with id " + id);
         }
     }
+
+    public void insertRating(Rating rating) {
+        ratingRepository.save(rating);
+        logger.info("New Rating " + rating + " is created!");
+    }
 }
