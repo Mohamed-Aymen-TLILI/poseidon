@@ -40,7 +40,7 @@ public class RatingController {
         }
         ratingService.insertRating(rating);
         model.addAttribute("ratings", ratingService.findAll());
-        return "rating/add";
+        return "rating/list";
     }
 
     @GetMapping("/rating/update/{id}")

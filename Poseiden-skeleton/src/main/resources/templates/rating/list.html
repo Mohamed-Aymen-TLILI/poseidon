@@ -39,10 +39,10 @@
 			</thead>
 			<tbody>
 			<!-- TODO: Show all Rating to the table, the Action column will have Edit & Delete buttons -->
-			<tr style="width: 10%" th:each="ratingList : ${ratingList}">
+			<tr style="width: 10%" th:each="ratingList : ${ratings}">
 				<td th:text="${ratingList.id}">ID</td>
 				<td th:text="${ratingList.moodysRating}">Moodys Rating</td>
-				<td style="width: 25%" th:text="${ratingList.sandPrating}">Sand Prating</td>
+				<td style="width: 25%" th:text="${ratingList.sandPRating}">Sand Prating</td>
 				<td th:text="${ratingList.fitchRating}">Fitch Rating</td>
 				<td th:text="${ratingList.orderNumber}">Order</td>
 

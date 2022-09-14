@@ -38,7 +38,7 @@
 			</thead>
 			<tbody>
 			<!-- TODO: Show all Trade to the table, the Action column will have Edit & Delete buttons -->
-			<tr style="width: 10%" th:each="tradeList : ${tradeList}">
+			<tr style="width: 10%" th:each="tradeList : ${trades}">
 				<td th:text="${tradeList.tradeId}">Id</td>
 				<td th:text="${tradeList.account}">Account</td>
 				<td style="width: 25%" th:text="${tradeList.type}">Type</td>

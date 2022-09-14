@@ -42,7 +42,7 @@
 			<tbody>
 			<!-- TODO: Show all RuleName to the table, the Action column will have Edit & Delete buttons -->
 
-			<tr style="width: 10%" th:each="ruleNameList : ${ruleNameList}">
+			<tr style="width: 10%" th:each="ruleNameList : ${ruleNames}">
 				<td th:text="${ruleNameList.id}">Id</td>
 				<td th:text="${ruleNameList.name}">Name</td>
 				<td style="width: 25%" th:text="${ruleNameList.description}">Description</td>
