@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "curvepoint")
+@Table(name = "curvePoint")
 public class CurvePoint {
     // TODO: Map columns in data table CURVEPOINT with corresponding java fields
     @Id
@@ -27,7 +27,7 @@ public class CurvePoint {
     @Digits(integer = 20, fraction = 0)
     @NotNull(message = "CurveId is mandatory")
     @Min(value = 0, message = "The value must be positive")
-    @Column(name = "curve_id")
+    @Column(name = "curveId")
     private Integer curvePointId ;
 
     @Digits(integer = 20, fraction = 2)

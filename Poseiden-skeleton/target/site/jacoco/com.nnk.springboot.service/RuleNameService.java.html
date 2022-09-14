@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuleNameService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">RuleNameService.java</span></div><h1>RuleNameService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+
+import com.nnk.springboot.domain.RuleName;
+import com.nnk.springboot.repositories.RuleNameRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L15">public class RuleNameService {</span>
+
+<span class="fc" id="L17">    Logger logger = LoggerFactory.getLogger(RuleNameService.class);</span>
+
+    @Autowired
+    private RuleNameRepository ruleNameRepository;
+
+    public List&lt;RuleName&gt; findAll() {
+<span class="fc" id="L23">        return ruleNameRepository.findAll();</span>
+    }
+
+    public void insertRuleName(RuleName ruleName) {
+<span class="fc" id="L27">        ruleNameRepository.save(ruleName);</span>
+<span class="fc" id="L28">        logger.info(&quot;New RuleName &quot; + ruleName + &quot; is created!&quot;);</span>
+<span class="fc" id="L29">    }</span>
+
+    public Boolean updateRuleName(int id, RuleName ruleName) {
+<span class="fc" id="L32">        boolean updated = false;</span>
+<span class="fc" id="L33">        Optional&lt;RuleName&gt; optionalRuleName = ruleNameRepository.findById(id);</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (optionalRuleName.isPresent()) {</span>
+<span class="fc" id="L35">            RuleName newRuleName = optionalRuleName.get();</span>
+<span class="fc" id="L36">            newRuleName.setName(ruleName.getName());</span>
+<span class="fc" id="L37">            newRuleName.setDescription(ruleName.getDescription());</span>
+<span class="fc" id="L38">            newRuleName.setJson(ruleName.getJson());</span>
+<span class="fc" id="L39">            newRuleName.setTemplate(ruleName.getTemplate());</span>
+<span class="fc" id="L40">            newRuleName.setSqlStr(ruleName.getSqlStr());</span>
+<span class="fc" id="L41">            newRuleName.setSqlPart(ruleName.getSqlPart());</span>
+<span class="fc" id="L42">            ruleNameRepository.save(newRuleName);</span>
+<span class="fc" id="L43">            updated = true;</span>
+<span class="fc" id="L44">            logger.info(&quot;RuleName with id &quot; + id + &quot; is updated as &quot; + newRuleName);</span>
+<span class="fc" id="L45">        } else {</span>
+<span class="nc" id="L46">            logger.error(&quot;Failed to updated RuleName with id &quot; + id + &quot; as &quot; + ruleName);</span>
+        }
+<span class="fc" id="L48">        return updated;</span>
+    }
+
+    public RuleName findById(int id) {
+<span class="fc" id="L52">        Optional&lt;RuleName&gt; optionalRuleName = ruleNameRepository.findById(id);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (optionalRuleName.isPresent()) {</span>
+<span class="fc" id="L54">            logger.info(&quot;Query to find RuleName with id &quot; + id);</span>
+<span class="fc" id="L55">            return optionalRuleName.get();</span>
+        } else {
+<span class="fc" id="L57">            logger.error(&quot;Failed to find RuleName with id &quot; + id);</span>
+        }
+<span class="fc" id="L59">        return null;</span>
+    }
+
+    public void deleteById(int id) {
+<span class="fc" id="L63">        Optional&lt;RuleName&gt; optionalRuleName = ruleNameRepository.findById(id);</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (optionalRuleName.isPresent()) {</span>
+<span class="fc" id="L65">            ruleNameRepository.delete(optionalRuleName.get());</span>
+<span class="fc" id="L66">            logger.info(&quot;RuleName with id &quot; + id + &quot; is deleted!&quot;);</span>
+        } else {
+<span class="nc" id="L68">            logger.error(&quot;Failed to delete RuleName with id &quot; + id);</span>
+        }
+<span class="fc" id="L70">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BidList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.domain</a> &gt; <span class="el_source">BidList.java</span></div><h1>BidList.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.domain;
+
+
+import lombok.*;
+import org.springframework.beans.factory.annotation.Required;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.sql.Date;
+import java.sql.Timestamp;
+
+@Getter
+<span class="pc" id="L13">@Setter</span>
+<span class="fc" id="L14">@ToString</span>
+<span class="fc" id="L15">@RequiredArgsConstructor</span>
+<span class="nc" id="L16">@AllArgsConstructor</span>
+@Entity
+@Table(name = &quot;bidlist&quot;)
+public class BidList {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+<span class="fc" id="L23">    private Integer bidListId ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;Account is mandatory&quot;)
+    @Column(name = &quot;account&quot;, unique = true)
+<span class="fc" id="L28">    private String account ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;Account is mandatory&quot;)
+    @Column(name = &quot;type&quot;)
+<span class="fc" id="L33">    private String type ;</span>
+
+    @Digits(integer = 15, fraction = 2)
+    @Min(value = 0, message = &quot;The value must be positive&quot;)
+    @NotNull(message = &quot;This Field cannot be empty&quot;)
+    @Column(name = &quot;bidQuantity&quot;)
+<span class="fc" id="L39">    private Double bidQuantity ;</span>
+
+
+<span class="nc" id="L42">    public BidList(String account, String type, Double bidQuantity) {</span>
+<span class="nc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

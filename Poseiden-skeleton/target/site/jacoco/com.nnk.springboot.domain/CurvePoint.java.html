@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CurvePoint.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.domain</a> &gt; <span class="el_source">CurvePoint.java</span></div><h1>CurvePoint.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.domain;
+
+import lombok.*;
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
+
+
+@Getter
+<span class="fc" id="L15">@Setter</span>
+<span class="fc" id="L16">@ToString</span>
+<span class="fc" id="L17">@RequiredArgsConstructor</span>
+<span class="nc" id="L18">@AllArgsConstructor</span>
+@Entity
+@Table(name = &quot;curvePoint&quot;)
+public class CurvePoint {
+    // TODO: Map columns in data table CURVEPOINT with corresponding java fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+<span class="fc" id="L25">    private Integer id ;</span>
+
+    @Digits(integer = 20, fraction = 0)
+    @NotNull(message = &quot;CurveId is mandatory&quot;)
+    @Min(value = 0, message = &quot;The value must be positive&quot;)
+    @Column(name = &quot;curveId&quot;)
+<span class="fc" id="L31">    private Integer curvePointId ;</span>
+
+    @Digits(integer = 20, fraction = 2)
+    @Min(value = 0, message = &quot;The value must be positive&quot;)
+    @NotNull(message = &quot;Numbers has to be present&quot;)
+    @Column(name = &quot;term&quot;)
+<span class="fc" id="L37">    private Double term ;</span>
+
+    @Digits(integer = 20, fraction = 2)
+    @Min(value = 0, message = &quot;The value must be positive&quot;)
+    @NotNull(message = &quot;Numbers has to be present&quot;)
+    @Column(name = &quot;value&quot;)
+<span class="fc" id="L43">    private Double value ;</span>
+
+
+<span class="nc" id="L46">    public CurvePoint(int curvePointId, double term, double value) {</span>
+<span class="nc" id="L47">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

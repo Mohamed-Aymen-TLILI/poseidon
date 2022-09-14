@@ -1,48 +1,78 @@
-/*
+
 package com.nnk.springboot;
 
 import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.repositories.RuleNameRepository;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.nnk.springboot.service.RuleNameService;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-import java.util.Optional;
 
-@RunWith(SpringRunner.class)
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RuleTests {
 
-	@Autowired
-	private RuleNameRepository ruleNameRepository;
 
-	@Test
-	public void ruleTest() {
-		RuleName rule = new RuleName("Rule Name", "Description", "Json", "Template", "SQL", "SQL Part");
+    private RuleName ruleName = new RuleName();
 
-		// Save
-		rule = ruleNameRepository.save(rule);
-		Assert.assertNotNull(rule.getId());
-		Assert.assertTrue(rule.getName().equals("Rule Name"));
+    @Autowired
+    private RuleNameRepository ruleNameRepository;
 
-		// Update
-		rule.setName("Rule Name Update");
-		rule = ruleNameRepository.save(rule);
-		Assert.assertTrue(rule.getName().equals("Rule Name Update"));
+    @Autowired
+    private RuleNameService ruleNameService;
 
-		// Find
-		List<RuleName> listResult = ruleNameRepository.findAll();
-		Assert.assertTrue(listResult.size() > 0);
+    @BeforeAll
+    public void initRuleName() {
+        ruleName.setName("Name");
+        ruleName.setDescription("Description");
+        ruleName.setJson("Json");
+        ruleName.setTemplate("Template");
+        ruleName.setSqlStr("SqlStr");
+        ruleName.setSqlPart("SqlPart");
+        ruleNameService.insertRuleName(ruleName);
+    }
 
-		// Delete
-		Integer id = rule.getId();
-		ruleNameRepository.delete(rule);
-		Optional<RuleName> ruleList = ruleNameRepository.findById(id);
-		Assert.assertFalse(ruleList.isPresent());
-	}
+    @AfterAll
+    public void deleteRuleName() {
+        ruleNameRepository.deleteAll();
+    }
+
+    @Test
+    public void updateById() {
+        Integer ruleNameId = ruleName.getId();
+        RuleName ruleNameById = ruleNameService.findById(ruleNameId);
+        ruleNameById.setName("Newname");
+        ruleNameById.setDescription("Newdescription");
+        ruleNameById.setJson("NewJson");
+        ruleNameById.setTemplate("Newtemplate");
+        ruleNameById.setSqlStr("NewSqlStr");
+        ruleNameById.setSqlPart("NewSqlPart");
+        Boolean updateRuleName = ruleNameService.updateRuleName(ruleNameId, ruleNameById);
+        Assertions.assertTrue(updateRuleName);
+    }
+
+    @Test
+    public void findAll() {
+        List<RuleName> ruleNameList = ruleNameService.findAll();
+        Assertions.assertTrue(ruleNameList.size() > 0);
+    }
+
+    @Test
+    public void findById() {
+        Integer ruleNameId = ruleName.getId();
+        RuleName ruleNameById = ruleNameService.findById(ruleNameId);
+        Assertions.assertNotNull(ruleNameById);
+    }
+
+    @Test
+    public void deleteById() {
+        Integer ruleNameId = ruleName.getId();
+        ruleNameService.deleteById(ruleNameId);
+        RuleName ruleNameById = ruleNameService.findById(ruleNameId);
+        Assertions.assertNull(ruleNameById);
+    }
 }
-*/

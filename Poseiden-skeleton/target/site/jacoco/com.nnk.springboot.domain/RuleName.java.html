@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RuleName.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.domain</a> &gt; <span class="el_source">RuleName.java</span></div><h1>RuleName.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.domain;
+
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import java.sql.Timestamp;
+
+@Getter
+<span class="fc" id="L11">@Setter</span>
+<span class="fc" id="L12">@ToString</span>
+<span class="fc" id="L13">@RequiredArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
+@Entity
+@Table(name = &quot;ruleName&quot;)
+public class RuleName {
+    // TODO: Map columns in data table RULENAME with corresponding java fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+<span class="fc" id="L21">    private Integer id ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;Name is mandatory&quot;)
+    @Column(name = &quot;name&quot;)
+<span class="fc" id="L26">    private String name ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;Description is mandatory&quot;)
+    @Column(name = &quot;description&quot;)
+<span class="fc" id="L31">    private String description ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;Json is mandatory&quot;)
+    @Column(name = &quot;json&quot;)
+<span class="fc" id="L36">    private String json ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;Template is mandatory&quot;)
+    @Column(name = &quot;template&quot;)
+<span class="fc" id="L41">    private String template ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;SQL is mandatory&quot;)
+    @Column(name = &quot;sqlStr&quot;)
+<span class="fc" id="L46">    private String sqlStr ;</span>
+
+    @Pattern(regexp=&quot;^[A-Za-z]*$&quot;, message = &quot;Input has to be text&quot;)
+    @NotBlank(message = &quot;SQL Part is mandatory&quot;)
+    @Column(name = &quot;sqlPart&quot;)
+<span class="fc" id="L51">    private String sqlPart ;</span>
+
+
+<span class="nc" id="L54">    public RuleName(String rule_name, String description, String json, String template, String sql, String sql_part) {</span>
+<span class="nc" id="L55">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -35,7 +35,7 @@ public class BidList {
     @Digits(integer = 15, fraction = 2)
     @Min(value = 0, message = "The value must be positive")
     @NotNull(message = "This Field cannot be empty")
-    @Column(name = "bid_quantity")
+    @Column(name = "bidQuantity")
     private Double bidQuantity ;
 
 

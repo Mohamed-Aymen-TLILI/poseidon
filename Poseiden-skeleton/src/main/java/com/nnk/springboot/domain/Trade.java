@@ -13,28 +13,28 @@ import java.sql.Timestamp;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "trade")
+@Table(name = "Trade")
 public class Trade {
     // TODO: Map columns in data table TRADE with corresponding java fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer tradeId ;
+    private Integer tradeId;
 
     @Pattern(regexp = "^[A-Za-z]*$", message = "Input has to be text")
     @NotBlank(message = "Account is mandatory")
     @Column(name = "account")
-    private String account ;
+    private String account;
 
     @Pattern(regexp = "^[A-Za-z]*$", message = "Input has to be text")
     @NotBlank(message = "Type is mandatory")
     @Column(name = "type")
-    private String type ;
+    private String type;
 
     @Digits(integer = 15, fraction = 2)
     @Min(value = 0, message = "The value must be positive")
     @NotNull(message = "This Field cannot be empty")
     @Column(name = "buy_quantity")
-    private Double buyQuantity ;
+    private Double buyQuantity;
 
 
     public Trade(String trade_account, String type, double v) {

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BidListService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service</a> &gt; <span class="el_source">BidListService.java</span></div><h1>BidListService.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service;
+
+import com.nnk.springboot.domain.BidList;
+import com.nnk.springboot.repositories.BidListRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L14">public class BidListService {</span>
+
+<span class="fc" id="L16">    private final Logger LOGGER = LoggerFactory.getLogger( BidListService.class);</span>
+
+    @Autowired
+    private BidListRepository bidListRepository ;
+
+    public void addBidList(BidList bidList) {
+<span class="fc" id="L22">        bidListRepository.save(bidList);</span>
+<span class="fc" id="L23">        LOGGER.info(&quot;New BidList &quot; + bidList + &quot; is created !&quot;);</span>
+<span class="fc" id="L24">    }</span>
+
+    public Boolean updateBidList(int id, BidList bidList) {
+<span class="fc" id="L27">        boolean updated = false;</span>
+<span class="fc" id="L28">        Optional&lt;BidList&gt; list = bidListRepository.findById(id);</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (list.isPresent()) {</span>
+<span class="fc" id="L30">            BidList newBidList = list.get();</span>
+<span class="fc" id="L31">            newBidList.setAccount(bidList.getAccount());</span>
+<span class="fc" id="L32">            newBidList.setType(bidList.getType());</span>
+<span class="fc" id="L33">            newBidList.setBidQuantity(bidList.getBidQuantity());</span>
+<span class="fc" id="L34">            bidListRepository.save(newBidList);</span>
+<span class="fc" id="L35">            updated = true;</span>
+<span class="fc" id="L36">            LOGGER.info(&quot;BidList with id &quot; + id + &quot; is updated as &quot; + newBidList);</span>
+<span class="fc" id="L37">        } else {</span>
+<span class="nc" id="L38">            LOGGER.error(&quot;Failed to update BidList with id &quot; + id + &quot; as &quot; + bidList);</span>
+        }
+<span class="fc" id="L40">        return updated;</span>
+    }
+
+    public List&lt;BidList&gt; findAll() {
+<span class="fc" id="L44">        return bidListRepository.findAll();</span>
+    }
+
+    public BidList findById(int id) {
+<span class="fc" id="L48">        Optional&lt;BidList&gt; list = bidListRepository.findById(id);</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (list.isPresent()) {</span>
+<span class="fc" id="L50">            LOGGER.info(&quot;Query to find BidList with id &quot; + id);</span>
+<span class="fc" id="L51">            return list.get();</span>
+        } else {
+<span class="fc" id="L53">            LOGGER.error(&quot;Failed to find BidList with id &quot; + id);</span>
+<span class="fc" id="L54">            return null;</span>
+        }
+    }
+
+    public void deleteById(int id) {
+<span class="fc" id="L59">        Optional&lt;BidList&gt; optionalBidList = bidListRepository.findById(id);</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">        if (optionalBidList.isPresent()) {</span>
+<span class="fc" id="L61">            bidListRepository.delete(optionalBidList.get());</span>
+<span class="fc" id="L62">            LOGGER.info(&quot;BidList with id &quot; + id + &quot; is deleted!&quot;);</span>
+        } else {
+<span class="nc" id="L64">            LOGGER.error(&quot;Failed to delete BidList with id &quot; + id);</span>
+        }
+<span class="fc" id="L66">    }</span>
+
+    public void insertBidList(BidList bidList) {
+<span class="fc" id="L69">        bidListRepository.save(bidList);</span>
+<span class="fc" id="L70">        LOGGER.info(&quot;New BidList &quot; + bidList + &quot; is created!&quot;);</span>
+<span class="fc" id="L71">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,48 +1,75 @@
-/*
 package com.nnk.springboot;
 
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.repositories.BidListRepository;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.nnk.springboot.service.BidListService;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-import java.util.Optional;
 
-@RunWith(SpringRunner.class)
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BidTests {
+
+	private BidList bidList = new BidList();
 
 	@Autowired
 	private BidListRepository bidListRepository;
 
+	@Autowired
+	private BidListService bidListService;
+
+	@BeforeAll
+	public void initBidList() {
+		bidList.setAccount("Account");
+		bidList.setType("Type");
+		bidList.setBidQuantity(89.99);
+		bidListService.addBidList(bidList);
+	}
+
+	@AfterAll
+	public void deletedBidList() {
+		bidListRepository.delete(bidList);
+	}
+
 	@Test
-	public void bidListTest() {
-		BidList bid = new BidList("Account Test", "Type Test", 10d);
+	public void updatedById() {
+		Integer bidListId = bidList.getBidListId();
+		BidList bidListById = bidListService.findById(bidListId);
+		bidListById.setAccount("NewAccount");
+		bidListById.setType("NewType");
+		bidListById.setBidQuantity(500.50);
+		Boolean updatedBidListById = bidListService.updateBidList(bidListId, bidListById);
+		assertTrue(updatedBidListById);
+	}
 
-		// Save
-		bid = bidListRepository.save(bid);
-		Assert.assertNotNull(bid.getBidListId());
-		Assert.assertEquals(bid.getBidQuantity(), 10d, 10d);
+	@Test
+	public void findAll() {
+		List<BidList> testBidListList = bidListService.findAll();
+		assertTrue(testBidListList.size() > 0);
+	}
 
-		// Update
-		bid.setBidQuantity(20d);
-		bid = bidListRepository.save(bid);
-		Assert.assertEquals(bid.getBidQuantity(), 20d, 20d);
+	@Test
+	public void findById() {
+		Integer bidListId = bidList.getBidListId();
+		bidListService.findById(bidListId);
+		assertEquals("Account", bidList.getAccount());
+		assertEquals("Type", bidList.getType());
+		assertEquals(89.99, bidList.getBidQuantity(), 0.01);
+	}
 
-		// Find
-		List<BidList> listResult = bidListRepository.findAll();
-		Assert.assertTrue(listResult.size() > 0);
-
-		// Delete
-		Integer id = bid.getBidListId();
-		bidListRepository.delete(bid);
-		Optional<BidList> bidList = bidListRepository.findById(id);
-		Assert.assertFalse(bidList.isPresent());
+	@Test
+	public void deleteById() {
+		Integer bidListId = bidList.getBidListId();
+		bidListService.deleteById(bidListId);
+		BidList bidListById = bidListService.findById(bidListId);
+		assertNull(bidListById);
 	}
 }
-*/

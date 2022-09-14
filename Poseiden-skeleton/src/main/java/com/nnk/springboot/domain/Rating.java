@@ -17,30 +17,29 @@ public class Rating {
     // TODO: Map columns in data table RATING with corresponding java fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id ;
+    private Integer id;
 
-    @Pattern(regexp = "^[A-Za-z]*$", message = "Input has to be text")
+    @Pattern(regexp="^[A-Za-z]*$", message = "Input has to be text")
     @NotBlank(message = "Moodys Rating is mandatory")
-    @Column(name = "moodys_rating")
-    private String moodysRating ;
+    private String moodysRating;
 
-    @Pattern(regexp = "^[A-Za-z]*$", message = "Input has to be text")
-    @NotBlank(message = "Sand Prating is mandatory")
-    @Column(name = "sand_prating")
-    private String sandPrating ;
+    @Pattern(regexp="^[A-Za-z]*$", message = "Input has to be text")
+    @NotBlank(message = "SendP Rating is mandatory")
+    private String sandPRating;
 
-    @Pattern(regexp = "^[A-Za-z]*$", message = "Input has to be text")
-    @NotBlank(message = "fitch Rating is mandatory")
-    @Column(name = "fitch_rating")
-    private String fitchRating ;
+    @Pattern(regexp="^[A-Za-z]*$", message = "Input has to be text")
+    @NotBlank(message = "Fitch Rating is mandatory")
+    private String fitchRating;
 
     @Digits(integer = 20, fraction = 0)
-    @NotNull(message = "Order number is mandatory")
-    @Min(value = 0, message = "The value must be positive")
-    @Column(name = "order_number")
-    private Integer orderNumber ;
+    @Min(value = 0L, message = "The value must be positive")
+    @NotNull(message = "Numbers has to be present")
+    private Integer orderNumber;
 
-
-    public Rating(String moodys_rating, String sand_pRating, String fitch_rating, int i) {
+    public Rating(String moodysRating, String sandPRating, String fitchRating, Integer orderNumber) {
+        this.moodysRating = moodysRating;
+        this.sandPRating = sandPRating;
+        this.fitchRating = fitchRating;
+        this.orderNumber = orderNumber;
     }
 }

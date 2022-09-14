@@ -28,7 +28,7 @@ public class RatingService {
         if (optionalRating.isPresent()) {
             Rating newRating = optionalRating.get();
             newRating.setMoodysRating(rating.getMoodysRating());
-            newRating.setSandPrating(rating.getSandPrating());
+            newRating.setSandPRating(rating.getSandPRating());
             newRating.setFitchRating(rating.getFitchRating());
             newRating.setOrderNumber(rating.getOrderNumber());
             ratingRepository.save(newRating);

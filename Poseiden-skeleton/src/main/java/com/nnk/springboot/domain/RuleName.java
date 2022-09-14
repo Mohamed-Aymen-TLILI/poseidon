@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "rulename")
+@Table(name = "ruleName")
 public class RuleName {
     // TODO: Map columns in data table RULENAME with corresponding java fields
     @Id
@@ -42,12 +42,12 @@ public class RuleName {
 
     @Pattern(regexp="^[A-Za-z]*$", message = "Input has to be text")
     @NotBlank(message = "SQL is mandatory")
-    @Column(name = "sql_str")
+    @Column(name = "sqlStr")
     private String sqlStr ;
 
     @Pattern(regexp="^[A-Za-z]*$", message = "Input has to be text")
     @NotBlank(message = "SQL Part is mandatory")
-    @Column(name = "sql_part")
+    @Column(name = "sqlPart")
     private String sqlPart ;
 
 

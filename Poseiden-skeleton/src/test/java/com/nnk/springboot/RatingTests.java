@@ -1,48 +1,72 @@
-/*
+
 package com.nnk.springboot;
 
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.repositories.RatingRepository;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.nnk.springboot.service.RatingService;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-import java.util.Optional;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RatingTests {
 
-	@Autowired
-	private RatingRepository ratingRepository;
+    private Rating rating = new Rating();
 
-	@Test
-	public void ratingTest() {
-		Rating rating = new Rating("Moodys Rating", "Sand PRating", "Fitch Rating", 10);
+    @Autowired
+    private RatingRepository ratingRepository;
 
-		// Save
-		rating = ratingRepository.save(rating);
-		Assert.assertNotNull(rating.getId());
-		Assert.assertTrue(rating.getOrderNumber() == 10);
+    @Autowired
+    private RatingService ratingService;
 
-		// Update
-		rating.setOrderNumber(20);
-		rating = ratingRepository.save(rating);
-		Assert.assertTrue(rating.getOrderNumber() == 20);
+    @BeforeAll
+    public void initRating() {
+        rating.setMoodysRating("MoodysRating");
+        rating.setSandPRating("SandPrating");
+        rating.setFitchRating("FitchRating");
+        rating.setOrderNumber(30);
+        ratingService.insertRating(rating);
+    }
 
-		// Find
-		List<Rating> listResult = ratingRepository.findAll();
-		Assert.assertTrue(listResult.size() > 0);
+    @AfterAll
+    public void deleteRating() {
+        ratingRepository.deleteAll();
+    }
 
-		// Delete
-		Integer id = rating.getId();
-		ratingRepository.delete(rating);
-		Optional<Rating> ratingList = ratingRepository.findById(id);
-		Assert.assertFalse(ratingList.isPresent());
-	}
+    @Test
+    public void updateById() {
+        Integer ratingId = rating.getId();
+        Rating ratingById = ratingService.findById(ratingId);
+        ratingById.setMoodysRating("NewmoodysRating");
+        ratingById.setSandPRating("NewsandPrating");
+        ratingById.setFitchRating("NewFitchRating");
+        ratingById.setOrderNumber(100);
+        Boolean updateRating = ratingService.updateRating(ratingId, ratingById);
+        Assertions.assertTrue(updateRating);
+    }
+
+    @Test
+    public void findAll() {
+        List<Rating> ratingList = ratingService.findAll();
+        Assertions.assertTrue(ratingList.size() > 0);
+    }
+
+    @Test
+    public void findById() {
+        Integer ratingId = rating.getId();
+        Rating ratingById = ratingService.findById(ratingId);
+        Assertions.assertNotNull(ratingById);
+    }
+
+    @Test
+    public void deleteById() {
+        Integer ratingId = rating.getId();
+        ratingService.deleteById(ratingId);
+        Rating ratingById = ratingService.findById(ratingId);
+        Assertions.assertNull(ratingById);
+    }
 }
-*/
