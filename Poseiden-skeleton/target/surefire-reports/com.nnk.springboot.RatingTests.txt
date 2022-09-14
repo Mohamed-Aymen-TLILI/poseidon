@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.RatingTests
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.573 s - in com.nnk.springboot.RatingTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.492 s <<< FAILURE! - in com.nnk.springboot.RatingTests
+com.nnk.springboot.RatingTests  Time elapsed: 1.492 s  <<< ERROR!
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+	at com.nnk.springboot.RatingTests.initRating(RatingTests.java:32)
+Caused by: org.hibernate.exception.DataException: could not execute statement
+	at com.nnk.springboot.RatingTests.initRating(RatingTests.java:32)
+Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'Id' at row 1
+	at com.nnk.springboot.RatingTests.initRating(RatingTests.java:32)
+
