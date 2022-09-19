@@ -53,6 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .successHandler(myAuthenticationSuccessHandler)
                 .permitAll()
                 .and()
+                .oauth2Login()
+                .loginPage("/login")
+                .and()
                 .logout()
                 .permitAll();
 

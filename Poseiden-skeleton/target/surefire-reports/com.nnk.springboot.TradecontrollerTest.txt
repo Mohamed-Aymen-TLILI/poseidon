@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.TradecontrollerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in com.nnk.springboot.TradecontrollerTest
-com.nnk.springboot.TradecontrollerTest  Time elapsed: 0.028 s  <<< ERROR!
-org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.TradecontrollerTest.init(TradecontrollerTest.java:47)
-Caused by: org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.TradecontrollerTest.init(TradecontrollerTest.java:47)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'TradeId' at row 1
-	at com.nnk.springboot.TradecontrollerTest.init(TradecontrollerTest.java:47)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.735 s - in com.nnk.springboot.TradecontrollerTest

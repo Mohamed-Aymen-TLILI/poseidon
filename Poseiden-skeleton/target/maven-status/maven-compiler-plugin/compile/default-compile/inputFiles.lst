@@ -1,6 +1,7 @@
 /Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/service/TradeService.java
 /Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/config/MyAuthenticationSuccessHandler.java
 /Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/UserController.java
+/Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/SignupController.java
 /Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java
 /Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/CurvePointRepository.java
 /Users/tlili/Desktop/Poseidon/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/CurvePoint.java

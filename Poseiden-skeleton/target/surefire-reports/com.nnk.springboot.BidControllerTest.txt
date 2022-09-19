@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.BidControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in com.nnk.springboot.BidControllerTest
-com.nnk.springboot.BidControllerTest  Time elapsed: 0.022 s  <<< ERROR!
-org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.BidControllerTest.init(BidControllerTest.java:47)
-Caused by: org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.BidControllerTest.init(BidControllerTest.java:47)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'BidListId' at row 1
-	at com.nnk.springboot.BidControllerTest.init(BidControllerTest.java:47)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.862 s - in com.nnk.springboot.BidControllerTest

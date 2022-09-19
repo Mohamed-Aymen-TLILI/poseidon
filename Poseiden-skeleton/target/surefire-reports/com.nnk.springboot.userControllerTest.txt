@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.userControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.456 s <<< FAILURE! - in com.nnk.springboot.userControllerTest
-com.nnk.springboot.userControllerTest  Time elapsed: 9.455 s  <<< ERROR!
-org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.userControllerTest.init(userControllerTest.java:44)
-Caused by: org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.userControllerTest.init(userControllerTest.java:44)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'Id' at row 1
-	at com.nnk.springboot.userControllerTest.init(userControllerTest.java:44)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.352 s - in com.nnk.springboot.userControllerTest

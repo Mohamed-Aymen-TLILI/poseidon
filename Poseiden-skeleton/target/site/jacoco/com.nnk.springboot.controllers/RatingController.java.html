@@ -40,7 +40,7 @@ import java.util.List;
         }
 <span class="nc" id="L41">        ratingService.insertRating(rating);</span>
 <span class="nc" id="L42">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
-<span class="nc" id="L43">        return &quot;rating/add&quot;;</span>
+<span class="nc" id="L43">        return &quot;rating/list&quot;;</span>
     }
 
     @GetMapping(&quot;/rating/update/{id}&quot;)

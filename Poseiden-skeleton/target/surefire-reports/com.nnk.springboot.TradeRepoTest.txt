@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.TradeRepoTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.052 s <<< FAILURE! - in com.nnk.springboot.TradeRepoTest
-tradeTest  Time elapsed: 0.039 s  <<< ERROR!
-org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.TradeRepoTest.tradeTest(TradeRepoTest.java:40)
-Caused by: org.hibernate.exception.DataException: could not execute statement
-	at com.nnk.springboot.TradeRepoTest.tradeTest(TradeRepoTest.java:40)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'TradeId' at row 1
-	at com.nnk.springboot.TradeRepoTest.tradeTest(TradeRepoTest.java:40)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.264 s - in com.nnk.springboot.TradeRepoTest
